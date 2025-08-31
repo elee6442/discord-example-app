@@ -57,6 +57,21 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
         },
       });
     }
+    else if(name == 'eric_test'){
+      return res.send({
+        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+        data: {
+          flags: InteractionResponseFlags.IS_COMPONENTS_V2,
+          components: [
+            {
+              type: MessageComponentTypes.TEXT_DISPLAY,
+              // Fetches a random emoji to send from a helper function
+              content: `hello eric! ${getRandomEmoji()}`
+            }
+          ]
+        },
+      });
+    }
 
     console.error(`unknown command: ${name}`);
     return res.status(400).json({ error: 'unknown command' });

@@ -26,6 +26,14 @@ const TEST_COMMAND = {
   contexts: [0, 1, 2],
 };
 
+const ERIC_COMMAND = {
+  name: 'eric_test',
+  description: 'Baby Eric\'s first test command',
+  type:1,
+  integration_types: [0, 1],
+  contexts: [0,1,2],
+};
+
 // Command containing options
 const CHALLENGE_COMMAND = {
   name: 'challenge',
