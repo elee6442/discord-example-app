@@ -76,11 +76,11 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
       //Interaction context
       const context = req.body.context;
       //User ID. Ternary operation to check if this is run on a server or in a (G)DM. Will control where the userID is appended.
-      const userID = context === 0 ? req.body.member.user.id : req.body.user.id;
+      const userId = context === 0 ? req.body.member.user.id : req.body.user.id;
       //User object choice. Wonder what the options array contains.
       const objectName = req.body.data.options[0].value;
       activeGames[id] = {
-        id: userID,
+        id: userId,
         objectName,
       };
       return res.send({
